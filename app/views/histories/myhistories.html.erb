@@ -1,0 +1,54 @@
+
+<div class="main-in">
+
+  <div class="bg-main-in"></div>
+  <div class="bg-main-img-in"></div>
+  <div class="main-in-text">
+
+    <h1>Histories <%= @user.username %></h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, placeat consequatur
+      veniam nesciunt sequi eligendi labore distinctio odit! Nostrum molestiae
+      doloribus pariatur nulla amet.</p>
+
+
+  </div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="row row-main-custom">
+    <% @histories.reverse.each do |history| %>
+
+      <div class="col-sm-6 col-md-3 cont-h">
+        <div class="thumbnail thumbnail-custom">
+          <figure>
+            <div class="thumbnail-text">
+
+              <%= link_to 'Show', history %>
+
+            </div>
+            <%= link_to(image_tag(history.picture.thumb), history) if history.picture? %>
+          </figure>
+          <div class="caption caption-custom">
+            <h3><%= history.title %></h3>
+            <small><%= time_ago_in_words(history.created_at) %> ago</small>
+            <p><%= history.content.truncate(150)  %></p>
+            <p>
+              <% if user_signed_in? && (current_user.id == history.user_id || current_user.admin == true) %>
+              <%= link_to 'Editar', edit_history_path(history), class: "btn-editar" %>
+              <%= link_to 'Eliminar', history, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-eliminar" %>
+              <% end %>
+
+            </p>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<br>

@@ -14,26 +14,34 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
   </head>
 
-  <body>
+  <body class="pictory-main">
     <%= render 'shared/navbar' %>
-    <div class="container">
+
+    <div>
       <% if notice %>
-        <div class="alert alert-dismissible alert-success">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <h4>Información</h4>
+        <div class="alert alert-custom alert-cont">
+          <button type="button" class="close close-custom" data-dismiss="alert">&times;</button>
           <p><%= notice %></p>
         </div>
       <% end %>
       <% if alert %>
         <div class="alert alert-dismissible alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <h4>Atención</h4>
           <p><%= alert %></p>
         </div>
       <% end %>
-      <%= yield %>
     </div>
+
+      <%= yield %>
+
+      <div class="container text-center footer-custom">
+        <p>Lorem ipsum dolor sit amet <span>PICTORY</span></p>
+      </div>
+
   </body>
 </html>

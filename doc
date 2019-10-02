@@ -1,0 +1,9 @@
+En el index es como se veian las imagenes anteriormente
+
+<% if user_signed_in? && current_user.id == history.user_id %>
+<%= link_to 'Show', history, class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_history_path(history), class: "btn btn-warning" %>
+<%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+<% else %>
+  <%= link_to 'Show', history, class: "btn btn-primary" %>
+<% end %>
